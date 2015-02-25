@@ -12,7 +12,7 @@ then
 	done
 fi
 
-ARGS="-v"
+#ARGS="-v"
 
 for f in $(ls $D)
 do
@@ -30,6 +30,8 @@ do
 	then
 		alien $ARGS $f --to-deb
 		alien $ARGS $f --to-rpm
+	else
+		echo "$f not a recognised package"
 	fi
 done
 
