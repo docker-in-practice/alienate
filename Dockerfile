@@ -1,6 +1,6 @@
 FROM ubuntu:14.04
 
-RUN apt-get update && apt-get install -y alien file
+RUN apt-get update && apt-get install -y alien file wget
 
 ADD alienate.sh /usr/bin/alienate.sh
 RUN chmod +x /usr/bin/alienate.sh

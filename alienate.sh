@@ -16,7 +16,7 @@ ARGS="-v"
 
 for f in $(ls $D)
 do
-	echo "Examining $f"
+	echo "Examining $f from $(pwd)"
 	file_type=$(file -b $f)
 	if [[ "$file_type" =~ "Debian binary package" ]]
 	then
@@ -33,3 +33,7 @@ do
 	fi
 done
 
+echo "================================================================================="
+echo "$D now contains:"
+echo "$(ls $D)"
+echo "================================================================================="
