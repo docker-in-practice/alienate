@@ -12,18 +12,24 @@ then
 	done
 fi
 
+ARGS="-v"
+
 for f in $(ls $D)
 do
 	echo "Examining $f"
 	file_type=$(file -b $f)
 	if [[ "$file_type" =~ "Debian binary package" ]]
 	then
-		alien $f --to-rpm --to-slp
+		alien $ARGS $f --to-rpm
+		alien $ARGS $f --to-slp
 	elif [[ "$file_type" =~ "RPM" ]]
 	then
-		alien $f --to-deb --to-slp
+		alien $ARGS $f --to-deb
+		alien $ARGS $f --to-slp
 	elif [[ "$file_type" =~ "bzip2 compressed" ]] && [[ $(echo $f | sed 's/.*\(....\)/\1/') = ".slp" ]]
 	then
-		alien $f --to-deb --to-rpm
+		alien $ARGS $f --to-deb
+		alien $ARGS $f --to-rpm
 	fi
 done
+
