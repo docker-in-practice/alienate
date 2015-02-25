@@ -1,14 +1,14 @@
 #!/bin/bash
 
-D="/files"
+D="/io"
 cd $D
 
 if [[ "x$1" != "x" ]]
 then
 	for f in $1
 	do
-		echo "Wgetting $1"
-		wget $1
+		echo "wgetting $1"
+		wget "$1"
 	done
 fi
 

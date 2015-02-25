@@ -5,6 +5,6 @@ RUN apt-get update && apt-get install -y alien file
 ADD /usr/bin/alienate.sh alienate.sh
 RUN chmod +x /usr/bin/alienate.sh
 
-VOLUME /files
+VOLUME /io
 
 ENTRYPOINT ["/usr/bin/alienate.sh"]
