@@ -23,14 +23,14 @@ do
 		echo "$f appears to be a Debian package"
 		alien $ARGS $f --to-rpm
 		alien $ARGS $f --to-slp
-		alien $ARGS $f --to-pkg
+		#alien $ARGS $f --to-pkg
 		alien $ARGS $f --to-tgz
 	elif [[ "$file_type" =~ "RPM" ]]
 	then
 		echo "$f appears to be an RPM"
 		alien $ARGS $f --to-deb
 		alien $ARGS $f --to-slp
-		alien $ARGS $f --to-pkg
+		#alien $ARGS $f --to-pkg
 		alien $ARGS $f --to-tgz
 	#elif [[ "$file_type" =~ "bzip2 compressed" ]] && [[ $(echo $f | sed 's/.*\(....\)/\1/') = ".slp" ]]
 	#then
@@ -39,20 +39,20 @@ do
 	#	alien $ARGS $f --to-rpm
 	#	alien $ARGS $f --to-pkg
 	#	alien $ARGS $f --to-tgz
-	elif [[ "$file_type" =~ "pkg Datastream" ]]
-	then
-		echo "$f appears to be a Solaris package"
-		alien $ARGS $f --to-deb
-		alien $ARGS $f --to-rpm
-		alien $ARGS $f --to-slp
-		alien $ARGS $f --to-tgz
+	#elif [[ "$file_type" =~ "pkg Datastream" ]]
+	#then
+	#	echo "$f appears to be a Solaris package"
+	#	alien $ARGS $f --to-deb
+	#	alien $ARGS $f --to-rpm
+	#	alien $ARGS $f --to-slp
+	#	alien $ARGS $f --to-tgz
 	elif [[ "$file type" =~ "gzip compressed data" ]] && [[ $(echo $f | sed 's/.*\(....\)/\1/') = ".tgz" ]]
 	then
 		echo "assuming $f is a Slackware package"
 		alien $ARGS $f --to-deb
 		alien $ARGS $f --to-rpm
 		alien $ARGS $f --to-slp
-		alien $ARGS $f --to-pkg
+		#alien $ARGS $f --to-pkg
 	else
 		echo "$f not a supported package"
 	fi
